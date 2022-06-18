@@ -1,4 +1,4 @@
-const menu = document.querySelector( 'menu' )
+const menu = document.querySelector( '.menu' )
 const menuBtn = document.querySelector( '.menu-btn' )
 
 // Toggle open/close menu
@@ -69,7 +69,7 @@ const nextSlide = () => {
     // Increment img id
     id++
     // Check if id is greater than the number of available slides
-    if ( id > pag.lenght - 1 ) {
+    if ( id > pag.length - 1 ) {
         id = 0
     }
     // Run the slider function
