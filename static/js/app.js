@@ -51,6 +51,7 @@ const slider = i => {
 
     // Reset image source
     img.src = images[ i ]
+    document.getElementsByClassName( 'slider-img' )[ 0 ].setAttribute( 'src', img.src )
 
     // Rechange accent color
     r.style.setProperty( '--accent', colors[ i ] )
