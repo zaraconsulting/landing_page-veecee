@@ -1,0 +1,370 @@
+:root {
+    --accent: #feb57b;
+    --spacing: 2.5em;
+}
+
+body {
+    margin: 0;
+    font-family: Helvetira, sans-serif;
+}
+
+
+* {
+    box-sizing: border-box;
+}
+
+a {
+    color: #111;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 0.7em;
+    letter-spacing: 1px;
+    transition: 0.3s;
+}
+
+span {
+    text-transform: uppercase;
+    font-size: 0.7em;
+    font-weight: 700;
+    transition: 0.3s;
+}
+
+p {
+    color: #949494;
+    font-size: 0.8em;
+    line-height: 30px;
+    letter-spacing: 1px;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+    text-align: center;
+}
+
+h1 {
+    font-size: 3.3em;
+    line-height: 1.3em;
+}
+
+header {
+    padding: var(--spacing);
+    background: #fff;
+    height: 100vh;
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+    max-width: 1350px;
+    height: 100%;
+    margin: 0 auto;
+}
+
+/* ====== Navbar ====== */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--spacing);
+    width: 100%;
+}
+
+ul, a, ul span {
+    font-weight: 700;
+    background-image: linear-gradient(0deg, #111, #111);
+    background-repeat: no-repeat;
+    background-size: 0 2px;
+    padding-bottom: 10px;
+    background-position: 50% bottom;
+}
+
+ul a:hover,
+ul span:hover,
+.controls span:hover,
+.controls span:hover,
+.search:focus {
+    background-size: 100% 2px;
+    background-image: linear-gradient(0deg, var(--accent), var(--accent));
+}
+
+nav span {
+    cursor: pointer;
+}
+
+.brand {
+    text-transform: capitalize;
+    font-size: 1.2em;
+}
+
+nav li {
+    display: inline-block;
+    margin: 0 0.7em;
+}
+
+.search {
+    text-align: center;
+    border: none;
+    outline: none;
+    width: 8em;
+    transition: 0.3s;
+}
+
+.search,
+.controls span,
+.active {
+    background-image: linear-gradient(0deg, #111, #111);
+    background-repeat: no-repeat;
+    background-size: 50% 2px;
+    padding-bottom: 10px;
+    background-position: 50% bottom;
+}
+
+.search::placeholder {
+    color: #111;
+    font-size: 0.8em;
+    letter-spacing: 1px;
+    font-weight: 700;
+}
+
+.search:focus {
+    background-size: 120% 2px;
+}
+
+.form-mobile {
+    display: none;
+}
+
+.menu-btn {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.header-body {
+    display: grid;
+    grid-template-columns: 1fr 1fr 3em;
+    justify-content: center;
+    align-content: center;
+}
+
+.header-body>div {
+    margin: 0 var(--spacing);
+}
+
+.slider img {
+    width: 100%;
+    height: 100%;
+}
+
+.slider {
+    position: relative;
+}
+
+.decoration-left,
+.decoration-right {
+    background: var(--accent);
+    position: absolute;
+    z-index: 1;
+}
+
+.decoration-left {
+    top: 50%;
+    left: -8%;
+    width: 16%;
+    height: 70%;
+    transform: translateY(-50%);
+    writing-mode: vertical-rl;
+    color: #fff;
+    font-size: 0.8em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: slide1;
+}
+
+.decoration-right {
+    bottom: 0;
+    right: -8%;
+    width: 16%;
+    height: 12em;
+    animation: slide2;
+}
+
+.overlay {
+    position: absolute;
+    background: #fff;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    animation: slide3;
+    z-index: 0;
+}
+
+.anim {
+    animation-duration: 0.8s;
+    animation-timing-function: cubic-bezier(.39, .08, .93, .42);
+}
+
+.text {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.text>div {
+    max-width: 27em;
+}
+
+.text p {
+    background-image: linear-gradient(0deg, var(--accent), var(--accent));
+    background-repeat: no-repeat;
+    background-size: 3px 100%;
+    padding-left: var(--spacing);
+    background-position: 0 0;
+}
+
+.soclal {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.social li {
+    margin: 1.5em 0;
+    writing-mode: vertical-rl;
+    font-weight: 700;
+}
+
+/* HEADER BOTTOM */
+.header-bottom {
+    margin: var(--spacing) 0 0 0;
+}
+
+.active {
+    color: var(--accent);
+    background-image: linear-gradient(0deg, var(--accent), var(--accent));
+}
+
+.controls span {
+    margin: 0 0.5em;
+}
+
+/* Animation */
+@keyframes slide1 {
+    0% {
+        height: 0;
+    }
+
+    100% {
+        height: 70%;
+    }
+}
+
+@keyframes slide2 {
+    0% {
+        height: 0;
+    }
+
+    100% {
+        height: 12em;
+    }
+}
+
+@keyframes slide3 {
+    0% {
+        height: 100%;
+    }
+
+    100% {
+        height: 0;
+    }
+}
+
+/* RESPONSIVE DESIGN */
+
+@media screen and (max-width: 1000px) {
+    .menu-btn {
+        display: block;
+    }
+
+    nav .menu {
+        background: #fff;
+        position: absolute;
+        left: 0;
+        top: 5em;
+        width: 100%;
+        height: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        opacity: 0;
+        transition: 0.6s;
+        overflow: hidden;
+        z-index: 9;
+    }
+
+    nav .menu-open {
+        opacity: 1;
+        height: 85%;
+        overflow: visible;
+    }
+
+    nav .menu li {
+        margin: 1em 0;
+    }
+
+    form:not(.form-mobile) {
+        display: none;
+    }
+
+    .form-mobile {
+        display: block;
+        margin-top: 1.6em;
+    }
+}
+
+@media screen and (max-width: 850px) {
+    header {
+        height: initial;
+    }
+
+    .header-body {
+        grid-template-columns: 1fr;
+    }
+
+    .header-body>div:not(.slider) {
+        margin: var(--spacing) 0;
+    }
+
+    .slider {
+        margin: var(--spacing) 0;
+    }
+
+    .pagination {
+        display: none;
+    }
+
+    .social {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: row;
+    }
+
+    .social li {
+        margin: 0 1.5em;
+        writing-mode: initial;
+    }
+}
+
+@media screen and (max-height: 430px) {
+    header .menu-open {
+        height: 600;
+    }
+}
